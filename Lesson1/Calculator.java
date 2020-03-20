@@ -23,7 +23,7 @@ public class Calculator{
         System.out.println ("Result = "+res);
       }
       if (zn == "%"){
-        System.out.println ("Result = "+(res));
+        System.out.println ("Result = "+a%b);
       }
     }
 } 
