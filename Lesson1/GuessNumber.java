@@ -11,4 +11,4 @@ public class GuessNumber {
                 System.out.println("You are right!");
                 }
     }
-} 
+}
