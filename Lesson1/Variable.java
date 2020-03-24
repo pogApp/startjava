@@ -8,6 +8,7 @@ public class Variable {
     	double audioForm = 2.1d;
     	char systemDisk = 'C';
     	boolean isWindows = true;
+        
     	System.out.println(videoInput + ", " + ram + ", " + audioInput + ", " + videoFreq + ", " + procFreq + ", " + audioForm + ", " + systemDisk + ", " + isWindows);
     }
 } 

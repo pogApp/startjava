@@ -1,7 +1,7 @@
 public class Cycle {
     public static void main(String[] args) {
         System.out.println("For");
-        for (int i=0; i<21; i++) {
+        for (int i = 0; i < 21; i++) {
             System.out.print(i + ", ");
         }
 

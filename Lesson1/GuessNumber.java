@@ -9,6 +9,6 @@ public class GuessNumber {
             System.out.println("Your number is smaller that computer random number");
         } else {
             System.out.println("You are right!");
-            }
+        }
     }
 }
