@@ -28,6 +28,4 @@ public class Person {
 	String learnJava() {
 		return "success";
 	}
-
-
 }
