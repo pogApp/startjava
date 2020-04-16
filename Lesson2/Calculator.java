@@ -1,31 +1,28 @@
 public class Calculator {
-
-	public void sum(int a, int b) {
-		System.out.println("Result = " + a + b);
+	private String operator;
+	void setOperator(String operator) {
+		this.operator = operator;
 	}
 
-	public void difference(int a, int b) {
-		System.out.println("Result = " + a - b);
+	public void calculate(int a,int b) {
+		switch (operator) {
+			case "+": System.out.println("Result = " + (a + b));
+				break;
+			case "-": System.out.println("Result = " + (a - b));
+				break;
+			case "*": System.out.println("Result = " + a * b);
+				break;
+			case "/": System.out.println("Result = " + (double) a / b);
+				break;
+			case "^": int result = 1;
+	        	for (int i = 1; i <= b; i++) {
+	            	result *= a;
+	        	}
+				System.out.println("Result = " + result);
+				break;
+			case "%": System.out.println("Result = " + a % b);
+				break;
+			default: System.out.println("Math operator is wrong!");
+		}
 	}
-
-	public void multiplication(int a, int b) {
-		System.out.println("Result = " + a * b);
-	}
-
-	public void devision(int a, int b) {
-		System.out.println("Result = " + (double) a / b);
-	}
-
-	public void degree(int a, int b) {
-		int result = 1;
-        for (int i = 1; i <= b; i++) {
-            result *= a;
-        }
-		System.out.println("Result = " + result);
-	}
-	
-	public void moduloDivision(int a, int b) {
-		System.out.println("Result = " + a % b);
-	}
-
 } 
