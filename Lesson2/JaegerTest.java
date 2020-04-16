@@ -1,7 +1,6 @@
 public class JaegerTest {
 	
 	public static void main(String[] args) {
-
 		Jaeger robot1 = new Jaeger();
 		robot1.setMark("Mark6");
 		robot1.setHeight(81.77d);
