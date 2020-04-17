@@ -17,10 +17,8 @@ public class GuessNumberTest {
 			p2.setPlayerNum(scan.nextInt());
 			game.check(p1.getPlayerNum(), p2.getPlayerNum(), p1.getName(), p2.getName());
 			while (!"yes".equals(game.getResume()) && !"no".equals(game.getResume())) {
-				System.out.println(game.getResume());
 				System.out.println("Want to resume? 'yes' or 'no'");
 				game.setResume(scan.next());
-				System.out.println(game.getResume());
 			}
 		}
 	}

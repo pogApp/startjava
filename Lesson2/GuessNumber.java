@@ -14,10 +14,6 @@ public class GuessNumber {
 		return resume;
 	}
 
-	public int getRandomNumber() {
-		return randomNumber;
-	}
-
 	public void check(int p1Num, int p2Num, String p1Name, String p2Name) {
 		if(p1Num == randomNumber && p2Num == randomNumber){
 			System.out.println("Both of you are right! It is " + randomNumber + ". Congratulations!");
