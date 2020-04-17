@@ -9,7 +9,6 @@ public class GuessNumberTest {
 		Player p2 = new Player(scan.nextLine());
 		System.out.println("Okay! " + p1.getName() + " and " + p2.getName() + ", let's play!");
 
-
 		GuessNumber game = new GuessNumber(randomNumber);
 		while ("yes".equals(game.getResume())) {
 			System.out.println(p1.getName() + ", enter the number:");
