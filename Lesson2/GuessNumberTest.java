@@ -13,11 +13,9 @@ public class GuessNumberTest {
 		GuessNumber game = new GuessNumber(p1, p2);
 		while ("yes".equals(resume)) {
 			game.start();
-			resume = "question";
-			while (!"yes".equals(resume) && !"no".equals(resume)) {
-				System.out.println("Want to resume? 'yes' or 'no'");
+			do {System.out.println("Want to resume? 'yes' or 'no'");
 				resume = scan.next();
-			}
+			} while (!"yes".equals(resume) && !"no".equals(resume));
 
 		}
 	}

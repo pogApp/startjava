@@ -7,6 +7,10 @@ public class Player {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public void setNum(int num) {
 		this.num = num;
 	}
@@ -15,7 +19,5 @@ public class Player {
 		return num;
 	}
 
-	public String getName() {
-		return name;
-	}
+
 }
