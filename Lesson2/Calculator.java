@@ -1,10 +1,15 @@
 public class Calculator {
 	private String operator;
-	void setOperator(String operator) {
-		this.operator = operator;
+	private int a;
+	private int b;
+
+	public Calculator(int n1, String operate, int n2) {
+		a = n1;
+		operator = operate;
+		b = n2;
 	}
 
-	public void calculate(int a,int b) {
+	public void calculate() {
 		switch (operator) {
 			case "+": System.out.println("Result = " + (a + b));
 				break;
