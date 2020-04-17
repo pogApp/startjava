@@ -9,7 +9,13 @@ public class GuessNumberTest {
 		Player p2 = new Player(scan.nextLine());
 		System.out.println("Okay! " + p1.getName() + " and " + p2.getName() + ", let's play!");
 
-		GuessNumber play = new GuessNumber(p1.getName(), p2.getName());
-		play.game();
+		GuessNumber game = new GuessNumber(p1, p2);
+		while ("yes".equals(game.getResume()))  {
+			game.start();
+			while (!"yes".equals(game.getResume()) && !"no".equals(game.getResume())) {
+				System.out.println("Want to resume? 'yes' or 'no'");
+				game.setResume(scan.next());
+			}
+		}
 	}
 }
