@@ -3,10 +3,10 @@ public class Calculator {
 	private int a;
 	private int b;
 
-	public Calculator(int n1, String operate, int n2) {
-		a = n1;
-		operator = operate;
-		b = n2;
+	public Calculator(int a, String operator, int b) {
+		this.a = a;
+		this.operator = operator;
+		this.b = b;
 	}
 
 	public void calculate() {
@@ -19,7 +19,8 @@ public class Calculator {
 				break;
 			case "/": System.out.println("Result = " + (double) a / b);
 				break;
-			case "^": int result = 1;
+			case "^": 
+				int result = 1;
 	        	for (int i = 1; i <= b; i++) {
 	            	result *= a;
 	        	}
@@ -30,4 +31,4 @@ public class Calculator {
 			default: System.out.println("Math operator is wrong!");
 		}
 	}
-} 
+}
