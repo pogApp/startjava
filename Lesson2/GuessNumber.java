@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class GuessNumber {
 	private int randomNumber = (int) (Math.random() * 101);
-	String p1Name;
-	String p2Name;
+	private String p1Name;
+	private String p2Name;
 
 	public GuessNumber(String p1, String p2) {
 		p1Name = p1;
@@ -11,9 +11,9 @@ public class GuessNumber {
 	}
 
 	private String resume = "yes";
-	int p1Num;
-	int p2Num;
-	Scanner scan = new Scanner(System.in);
+	private int p1Num;
+	private int p2Num;
+	private Scanner scan = new Scanner(System.in);
 
 	public void game() {
 		while ("yes".equals(resume)) {
