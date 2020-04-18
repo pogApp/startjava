@@ -21,9 +21,9 @@ public class Calculator {
 				break;
 			case "^": 
 				int result = 1;
-	        	for (int i = 1; i <= b; i++) {
-	            	result *= a;
-	        	}
+				for (int i = 1; i <= b; i++) {
+				result *= a;
+				}
 				System.out.println("Result = " + result);
 				break;
 			case "%": System.out.println("Result = " + a % b);
