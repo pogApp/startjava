@@ -1,3 +1,5 @@
+package com.startjava.lesson2.calculator;
+
 public class Calculator {
 	private String operator;
 	private int a;

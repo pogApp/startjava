@@ -1,4 +1,6 @@
-public class GuessNumber2 {
+package com.startjava.lesson1.guessnumber;
+
+public class GuessNumber {
     public static void main(String[] args) {
         int randomNum = 72;
         int playerNum = 50;

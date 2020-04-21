@@ -1,3 +1,5 @@
+package com.startjava.lesson2.jaeger;
+
 public class JaegerTest {
 	
 	public static void main(String[] args) {
