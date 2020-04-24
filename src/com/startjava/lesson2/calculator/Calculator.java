@@ -1,34 +1,26 @@
 package com.startjava.lesson2.calculator;
 
 public class Calculator {
-	private String operator;
-	private int a;
-	private int b;
+	private String[] operation;
 
-	public Calculator(int a, String operator, int b) {
-		this.a = a;
-		this.operator = operator;
-		this.b = b;
+	public Calculator(String operation) {
+		this.operation = operation.split(" ");
 	}
 
 	public void calculate() {
-		switch (operator) {
-			case "+": System.out.println("Result = " + (a + b));
+		switch (operation[1]) {
+			case "+": System.out.println("Result = " + (Integer.parseInt(operation[0]) + Integer.parseInt(operation[2])));
 				break;
-			case "-": System.out.println("Result = " + (a - b));
+			case "-": System.out.println("Result = " + (Integer.parseInt(operation[0]) - Integer.parseInt(operation[2])));
 				break;
-			case "*": System.out.println("Result = " + a * b);
+			case "*": System.out.println("Result = " + Integer.parseInt(operation[0]) * Integer.parseInt(operation[2]));
 				break;
-			case "/": System.out.println("Result = " + (double) a / b);
+			case "/": System.out.println("Result = " + (double) Integer.parseInt(operation[0]) / Integer.parseInt(operation[2]));
 				break;
-			case "^": 
-				int result = 1;
-				for (int i = 1; i <= b; i++) {
-				result *= a;
-				}
-				System.out.println("Result = " + result);
+			case "^":
+				System.out.println("Result = " + Math.pow(Integer.parseInt(operation[0]), Integer.parseInt(operation[2])));
 				break;
-			case "%": System.out.println("Result = " + a % b);
+			case "%": System.out.println("Result = " + Integer.parseInt(operation[0]) % Integer.parseInt(operation[2]));
 				break;
 			default: System.out.println("Math operator is wrong!");
 		}
