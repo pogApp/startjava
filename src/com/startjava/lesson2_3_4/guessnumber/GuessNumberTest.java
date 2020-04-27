@@ -15,8 +15,6 @@ public class GuessNumberTest {
 		GuessNumber game = new GuessNumber(p1, p2);
 		while ("yes".equals(resume)) {
 			game.start();
-			game.outNumbers(p1);
-			game.outNumbers(p2);
 			do {
 				System.out.println("\nWant to resume? 'yes' or 'no'");
 				resume = scan.next();
