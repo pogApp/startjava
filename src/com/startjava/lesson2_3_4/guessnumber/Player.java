@@ -11,18 +11,6 @@ public class Player {
         this.name = name;
     }
 
-	public void clear() {
-		Arrays.fill(enteredNumbers, -1);
-	}
-
-	public int[] getEnteredNumbers() {
-    	return enteredNumbers;
-	}
-
-    public void cut(int i) {
-		enteredNumbers = Arrays.copyOf(enteredNumbers, i + 1);
-    }
-
     public String getName() {
         return name;
     }
@@ -33,5 +21,17 @@ public class Player {
 
     public int getEnteredNumbers(int i) {
         return enteredNumbers[i];
+    }
+
+    public int[] getEnteredNumbers() {
+        return enteredNumbers;
+    }
+
+    public void clear() {
+        Arrays.fill(enteredNumbers, -1);
+    }
+
+    public void cut(int i) {
+        enteredNumbers = Arrays.copyOf(enteredNumbers, i + 1);
     }
 }

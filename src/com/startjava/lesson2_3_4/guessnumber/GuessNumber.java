@@ -11,8 +11,8 @@ public class GuessNumber {
         this.p1 = p1;
         this.p2 = p2;
     }
-    private void check(Player player, int i, int randomNumber) {
-        System.out.println(player.getName() + ", enter the number:");
+    private boolean doAttempt(Player player, int i, int randomNumber) {
+        System.out.println(player.getName() + ", attempt " + (i + 1) + ", enter the number:");
         player.setEnteredNumbers(scan.nextInt(), i);
         if (player.getEnteredNumbers(i) == randomNumber) {
             System.out.println(player.getName() + " guessed the number from the " + (i + 1) + " attempt! It is " + randomNumber + ". Congratulations!");
@@ -23,30 +23,31 @@ public class GuessNumber {
                 p1.cut(i);
                 p2.cut(i);
             }
+            return false;
         } else {
             if (player.getEnteredNumbers(i) > randomNumber) {
                 System.out.println(player.getName() + ", your number is too big");
             } else {
                 System.out.println(player.getName() + ", your number is too small");
             }
-        }
-        if (i == 9) {
-            System.out.println(player.getName() + " no longer has a chance.");
+            if (i == 9) {
+                System.out.println(player.getName() + " no longer has a chance.");
+            }
+            return true;
         }
     }
 
     public void start() {
         int randomNumber = (int) (Math.random() * 101);
+        // int randomNumber = 50;
         p1.clear();
         p2.clear();
         System.out.println("Both of you have 10 chances.");
         for (int i = 0; i < 10; i++) {
-            check(p1, i, randomNumber);
-            if (p1.getEnteredNumbers(i) == randomNumber){
+            if (!doAttempt(p1, i, randomNumber)){
                 break;
             }
-            check(p2, i, randomNumber);
-            if (p2.getEnteredNumbers(i) == randomNumber){
+            if (!doAttempt(p2, i, randomNumber)){
                 break;
             }
         }
