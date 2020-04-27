@@ -11,6 +11,29 @@ public class GuessNumber {
         this.p1 = p1;
         this.p2 = p2;
     }
+    private void check(Player player, int i, int randomNumber) {
+        System.out.println(player.getName() + ", enter the number:");
+        player.setEnteredNumbers(scan.nextInt(), i);
+        if (player.getEnteredNumbers(i) == randomNumber) {
+            System.out.println(player.getName() + " guessed the number from the " + (i + 1) + " attempt! It is " + randomNumber + ". Congratulations!");
+            if (player == p1) {
+                p1.cut(i);
+                p2.cut(i - 1);
+            } else {
+                p1.cut(i);
+                p2.cut(i);
+            }
+        } else {
+            if (player.getEnteredNumbers(i) > randomNumber) {
+                System.out.println(player.getName() + ", your number is too big");
+            } else {
+                System.out.println(player.getName() + ", your number is too small");
+            }
+        }
+        if (i == 9) {
+            System.out.println(player.getName() + " no longer has a chance.");
+        }
+    }
 
     public void start() {
         int randomNumber = (int) (Math.random() * 101);
@@ -18,43 +41,21 @@ public class GuessNumber {
         p2.clear();
         System.out.println("Both of you have 10 chances.");
         for (int i = 0; i < 10; i++) {
-            System.out.println(p1.getName() + ", enter the number:");
-            p1.setNum(scan.nextInt(), i);
-            if (p1.getNum(i) == randomNumber) {
-                System.out.println(p1.getName() + " guessed the number from the " + (i + 1) + " attempt! It is " + randomNumber + ". Congratulations!");
-                p1.copy(i);
-                p2.copy(i - 1);
+            check(p1, i, randomNumber);
+            if (p1.getEnteredNumbers(i) == randomNumber){
                 break;
-            } else {
-                if (p1.getNum(i) > randomNumber) {
-                    System.out.println(p1.getName() + ", your number is too big");
-                } else {
-                    System.out.println(p1.getName() + ", your number is too small");
-                }
             }
-            if (i == 9) {
-                System.out.println(p1.getName() + " no longer has a chance.");
-            }
-            System.out.println(p2.getName() + ", enter the number:");
-            p2.setNum(scan.nextInt(), i);
-            if (p2.getNum(i) == randomNumber) {
-                System.out.println(p2.getName() + " guessed the number from the " + (i + 1) + " attempt! It is " + randomNumber + ". Congratulations!");
-                p1.copy(i);
-                p2.copy(i);
+            check(p2, i, randomNumber);
+            if (p2.getEnteredNumbers(i) == randomNumber){
                 break;
-            } else {
-                if (p2.getNum(i) > randomNumber) {
-                    System.out.println(p2.getName() + ", your number is too big");
-                } else {
-                    System.out.println(p2.getName() + ", your number is too small");
-                }
-            }
-            if (i == 9) {
-                System.out.println(p2.getName() + " no longer has a chance.");
-                p1.copy(i);
-                p2.copy(i);
             }
         }
+    }
 
+    public void outNumbers(Player player) {
+        System.out.print("\n" + player.getName() + "'s numbers:");
+        for (int j : player.getEnteredNumbers()) {
+            System.out.print(" " + j);
+        }
     }
 }

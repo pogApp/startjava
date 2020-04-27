@@ -5,34 +5,33 @@ import java.util.Arrays;
 public class Player {
 
     private String name;
-    private int[] num = new int[10];
-    private int[] numActual;
+    private int[] enteredNumbers = new int[10];
 
     public Player(String name) {
         this.name = name;
     }
 
 	public void clear() {
-		Arrays.fill(num, -1);
+		Arrays.fill(enteredNumbers, -1);
 	}
 
-	public int[] getNumActual() {
-    	return numActual;
+	public int[] getEnteredNumbers() {
+    	return enteredNumbers;
 	}
 
-    public void copy(int i) {
-		numActual = Arrays.copyOf(num, i + 1);
+    public void cut(int i) {
+		enteredNumbers = Arrays.copyOf(enteredNumbers, i + 1);
     }
 
     public String getName() {
         return name;
     }
 
-    public void setNum(int num, int i) {
-        this.num[i] = num;
+    public void setEnteredNumbers(int enteredNumbers, int i) {
+        this.enteredNumbers[i] = enteredNumbers;
     }
 
-    public int getNum(int i) {
-        return num[i];
+    public int getEnteredNumbers(int i) {
+        return enteredNumbers[i];
     }
 }
