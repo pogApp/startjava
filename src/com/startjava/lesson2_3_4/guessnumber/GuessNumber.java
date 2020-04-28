@@ -1,7 +1,5 @@
 package com.startjava.lesson2_3_4.guessnumber;
 
-import java.util.Arrays;
-
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -13,37 +11,41 @@ public class GuessNumber {
         this.p1 = p1;
         this.p2 = p2;
     }
+
     public void start() {
         int randomNumber = (int) (Math.random() * 101);
         System.out.println("Both of you have 10 chances.");
+        p1.clearNumbersAndAttempts();
+        p2.clearNumbersAndAttempts();
         for (int i = 0; i < 10; i++) {
             enterNumber(p1, i);
-            if (check(p1, i, randomNumber)){
-                writeNumbers(p1, i + 1);
-                writeNumbers(p2, i);
+            if (compareNumbers(p1, i, randomNumber)){
+                displayNumbers(p1);
+                displayNumbers(p2);
                 break;
             }
             enterNumber(p2, i);
-            if (check(p2, i, randomNumber)){
-                writeNumbers(p1, i + 1);
-                writeNumbers(p2, i + 1);
+            if (compareNumbers(p2, i, randomNumber)){
+                displayNumbers(p1);
+                displayNumbers(p2);
                 break;
             }
             if (i == 9) {
-                writeNumbers(p1, i + 1);
-                writeNumbers(p2, i + 1);
+                displayNumbers(p1);
+                displayNumbers(p2);
             }
         }
     }
 
-    public void enterNumber(Player player, int i){
-            System.out.println(player.getName() + ", attempt " + (i + 1) + ", enter the number:");
-            player.setNumber(scan.nextInt(), i);
+    private void enterNumber(Player player, int i){
+        player.setAttempt(player.getAttempt() + 1);
+        System.out.println(player.getName() + ", attempt " + player.getAttempt() + ", enter the number:");
+        player.setNumber(scan.nextInt(), i);
     }
 
-    private boolean check(Player player, int i, int randomNumber) {
+    private boolean compareNumbers(Player player, int i, int randomNumber) {
         if (player.getEnteredNumber(i) == randomNumber) {
-            System.out.println(player.getName() + " guessed the number from the " + (i + 1) + " attempt! It is " + randomNumber + ". Congratulations!");
+            System.out.println(player.getName() + " guessed the number from the " + player.getAttempt() + " attempt! It is " + randomNumber + ". Congratulations!");
             return true;
         } else {
             if (player.getEnteredNumber(i) > randomNumber) {
@@ -58,13 +60,10 @@ public class GuessNumber {
         }
     }
 
-    public void writeNumbers(Player player,int i) {
+    private void displayNumbers(Player player) {
         System.out.print("\n" + player.getName() + "'s numbers: ");
-        for (int j:Arrays.copyOf(player.getEnteredNumbers(),i)) {
+        for (int j:player.getEnteredNumbers(player.getAttempt())) {
             System.out.print(j + " ");
         }
-        Arrays.fill(player.getEnteredNumbers(), 0 , i, -1);
     }
-
-
 }
