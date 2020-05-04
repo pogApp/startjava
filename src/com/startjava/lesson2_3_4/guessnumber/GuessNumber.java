@@ -20,11 +20,11 @@ public class GuessNumber {
         p2.clear();
         for (int i = 0; i < 10; i++) {
             enterNumber(p1, i);
-            if (compareNumbers(p1, i, randomNumber)) {
+            if (compareNumbers(p1, i)) {
                 break;
             }
             enterNumber(p2, i);
-            if (compareNumbers(p2, i, randomNumber)) {
+            if (compareNumbers(p2, i)) {
                 break;
             }
         }
@@ -37,22 +37,24 @@ public class GuessNumber {
     }
 
     private void enterNumber(Player player, int i) {
-        player.doAttempt();
+        player.incAttempt();
         System.out.println(player.getName() + ", attempt " + player.getAttempt() + ", enter the number:");
         player.setNumber(scan.nextInt(), i);
     }
 
-    private boolean compareNumbers(Player player, int i, int randomNumber) {
-        if (player.getEnteredNumber(i) == randomNumber) {
-            System.out.println(player.getName() + " guessed the number from the " + player.getAttempt() + " attempt! It is " + randomNumber + ". Congratulations!");
+    private boolean compareNumbers(Player player, int i) {
+        int playerNum = player.getLastNumber(i);
+        String playerName = player.getName();
+        if (playerNum == randomNumber) {
+            System.out.println(playerName + " guessed the number from the " + player.getAttempt() + " attempt! It is " + randomNumber + ". Congratulations!");
             return true;
-        } else if (player.getEnteredNumber(i) > randomNumber) {
-                System.out.println(player.getName() + ", your number is too big");
+        } else if (playerNum > randomNumber) {
+                System.out.println(playerName + ", your number is too big");
         } else {
-            System.out.println(player.getName() + ", your number is too small");
+            System.out.println(playerName + ", your number is too small");
         }
         if (i == 9) {
-            System.out.println(player.getName() + " no longer has a chance.");
+            System.out.println(playerName + " no longer has a chance.");
         }
         return false;
     }

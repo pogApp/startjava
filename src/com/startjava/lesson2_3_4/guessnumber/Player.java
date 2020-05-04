@@ -17,10 +17,10 @@ public class Player {
     }
 
     public void setNumber(int enteredNumber, int i) {
-        this.enteredNumbers[i] = enteredNumber;
+        enteredNumbers[i] = enteredNumber;
     }
 
-    public int getEnteredNumber(int i) {
+    public int getLastNumber(int i) {
         return enteredNumbers[i];
     }
 
@@ -28,7 +28,7 @@ public class Player {
         return Arrays.copyOf(enteredNumbers, i);
     }
 
-    public void doAttempt() {
+    public void incAttempt() {
         attempt++;
     }
 
