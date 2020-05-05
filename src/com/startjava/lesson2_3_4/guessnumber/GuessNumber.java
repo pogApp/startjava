@@ -43,18 +43,18 @@ public class GuessNumber {
     }
 
     private boolean compareNumbers(Player player, int i) {
-        int playerNum = player.getLastNumber(i);
-        String playerName = player.getName();
-        if (playerNum == randomNumber) {
-            System.out.println(playerName + " guessed the number from the " + player.getAttempt() + " attempt! It is " + randomNumber + ". Congratulations!");
+        int num = player.getLastNumber();
+        String name = player.getName();
+        if (num == randomNumber) {
+            System.out.println(name + " guessed the number from the " + player.getAttempt() + " attempt! It is " + randomNumber + ". Congratulations!");
             return true;
-        } else if (playerNum > randomNumber) {
-                System.out.println(playerName + ", your number is too big");
+        } else if (num > randomNumber) {
+                System.out.println(name + ", your number is too big");
         } else {
-            System.out.println(playerName + ", your number is too small");
+            System.out.println(name + ", your number is too small");
         }
         if (i == 9) {
-            System.out.println(playerName + " no longer has a chance.");
+            System.out.println(name + " no longer has a chance.");
         }
         return false;
     }

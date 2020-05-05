@@ -6,7 +6,7 @@ public class Player {
 
     private String name;
     private int[] enteredNumbers = new int[10];
-    private int attempt = 10;
+    private int attempt;
 
     public Player(String name) {
         this.name = name;
@@ -20,8 +20,8 @@ public class Player {
         enteredNumbers[i] = enteredNumber;
     }
 
-    public int getLastNumber(int i) {
-        return enteredNumbers[i];
+    public int getLastNumber() {
+        return enteredNumbers[attempt];
     }
 
     public int[] getEnteredNumbers(int i) {
